@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Hash Extensivel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Visualização tabela hash extensivel</h1>
+
+    <div class="controls">
+      <label for="bucket-capacity">Maximo de elementosno cesto</label>
+      <input type="number" id="bucket-capacity" value="2" min="1" />
+      <button id="init-btn">Iniciar/Resetar</button>
+      <hr />
+      <label for="element-value">Valor elemento (inteiro):</label>
+      <input type="number" id="element-value" />
+      <button id="insert-btn">Inserir</button>
+      <button id="search-btn">Buscar</button>
+      <button id="delete-btn">Deletar</button>
+    </div>
+
+    <div class="visualization-area">
+      <div class="directory-panel">
+        <h2>Diretorio (Profundidade global: <span id="global-depth">N/A</span>)</h2>
+        <div id="directory-entries"></div>
+      </div>
+
+      <div class="buckets-panel">
+        <h2>Cestos</h2>
+        <div id="bucket-list"></div>
+      </div>
+    </div>
+
+    <div class="log-panel">
+      <h2>Logs/Resultados</h2>
+      <pre id="log-output"></pre>
+    </div>
+
+    <script src="extendible-hash.js"></script>
+  </body>
+</html>

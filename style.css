@@ -1,0 +1,38 @@
+/* Basic Conceptual CSS */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+.controls,
+.visualization-area,
+.log-panel {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.visualization-area {
+  display: flex;
+  gap: 20px;
+}
+.directory-panel,
+.buckets-panel {
+  flex: 1;
+}
+#directory-entries,
+#bucket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dir-entry,
+.bucket {
+  border: 1px solid #eee;
+  padding: 8px;
+  background-color: #f9f9f9;
+}
+.bucket.highlight {
+  background-color: #ffe0b2;
+}
+.dir-entry.highlight {
+  background-color: #c8e6c9;
+}
