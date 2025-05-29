@@ -414,14 +414,14 @@ function deleteElement() {
     log("ERROR: Element value must be an integer.");
     return;
   }
-  log(`Attempting to delete key: ${key}`);
+  log(`Tentando excluir a chave: ${key}`);
 
   let dirIndex = getHash(key, directory.globalDepth);
   let bucketId = directory.pointers[dirIndex];
   let targetBucket = buckets.find((b) => b.id === bucketId);
 
   if (!targetBucket) {
-    log(`CRITICAL ERROR: No bucket found for ID ${bucketId} during delete.`);
+    log(`ERRO CRÍTICO: Nenhum cesto encontrado para o ID ${bucketId} durante a exclusão.`);
     return;
   }
 
@@ -431,11 +431,11 @@ function deleteElement() {
   const elementIndexInBucket = targetBucket.elements.indexOf(key);
   if (elementIndexInBucket > -1) {
     targetBucket.elements.splice(elementIndexInBucket, 1);
-    log(`Key ${key} DELETED from Bucket ${targetBucket.id}.`);
+    log(`Chave ${key} deletada do cesto ${targetBucket.id}.`);
     updateVisuals();
     highlightBucket(targetBucket.id); // Re-highlight after redraw
   } else {
-    log(`Key ${key} NOT FOUND in Bucket ${targetBucket.id}. Cannot delete.`);
+    log(`Chave ${key} nao encontrada no cesto ${targetBucket.id}. Impossivel deletar.`);
   }
   elementValueInput.value = "";
 
