@@ -48,4 +48,12 @@ Finalmente, todos os elementos do cesto antigo (mais a nova chave que se tentava
 Busca e Remoção (searchElement, deleteElement):
 
 Ambas as funções são mais diretas. Elas usam a função de hash com a profundidade global para encontrar o cesto correto e, em seguida, operam no array elements desse cesto para verificar a existência ou remover o elemento, respectivamente.
-Checklist de Entrega
+## Checklist de Entrega
+
+O trabalho implementa corretamente a estrutura de dados Tabela Hash Extensível, incluindo inserção, busca e remoção? Sim
+A lógica de divisão de cestos (split) foi implementada?	Sim
+A aplicação possui uma interface gráfica clara e intuitiva para interação do usuário?	Sim
+A interface exibe visualmente o estado do diretório, a profundidade global, os cestos e a profundidade local?	Sim
+Existe um painel de logs ou uma área de texto que descreve as operações passo a passo? Sim	
+O código-fonte está organizado e comentado, facilitando o entendimento?	Sim
+O trabalho é autocontido e não requer a instalação de dependências externas para ser executado?	Sim
