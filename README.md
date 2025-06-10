@@ -12,7 +12,7 @@
 
 
 ## Visão Geral do Projeto
-Este repositório contém o desenvolvimento de um trabalho prático para a disciplina de Algoritmos e Estruturas de Dados. O projeto consiste em uma aplicação web interativa que demonstra o funcionamento de uma Tabela Hash Extensível, uma estrutura de dados dinâmica que cresce e encolhe de acordo com a necessidade de armazenamento, sendo uma excelente alternativa para manipulação de grandes volumes de dados em disco.
+Este repositório contém o desenvolvimento de um trabalho prático para a disciplina de Algoritmos e Estruturas de Dados III. O projeto consiste em uma aplicação web interativa que demonstra o funcionamento de uma Tabela Hash Extensível, uma estrutura de dados dinâmica que cresce e encolhe de acordo com a necessidade de armazenamento, sendo uma excelente alternativa para manipulação de grandes volumes de dados em disco.
 
 O objetivo principal é oferecer uma ferramenta visual e didática que facilite o entendimento dos processos complexos envolvidos na manipulação dessa estrutura, como a inserção de chaves, a divisão de buckets (cestos) e a duplicação do diretório.
 
