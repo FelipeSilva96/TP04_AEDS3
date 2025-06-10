@@ -2,10 +2,13 @@
 
 ## Participantes:
 
-Felipe Pereira da Silva
-Rikerson Antonio Freitas Silva
-Maria Eduarda Pinto Martins
-Kauan Gabriel Silva Pereira
+#### Felipe Pereira da Silva
+
+#### Rikerson Antonio Freitas Silva
+
+#### Maria Eduarda Pinto Martins
+
+#### Kauan Gabriel Silva Pereira
 
 
 ## Visão Geral do Projeto
