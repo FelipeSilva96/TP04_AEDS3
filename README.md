@@ -61,6 +61,34 @@ Busca e Remoção (searchElement, deleteElement):
 
 Ambas as funções são mais diretas. Elas usam a função de hash com a profundidade global para encontrar o cesto correto e, em seguida, operam no array elements desse cesto para verificar a existência ou remover o elemento, respectivamente.
 
+### Métodos Principais (Operações)
+As funções que operam no diretório são:
+
+Localizar um cesto (getHash): A função getHash(key, depth) é o método principal para usar o diretório. Ela calcula um índice no array pointers com base nos globalDepth bits menos significativos da chave, determinando para qual cesto a chave deve ir.
+
+Duplicar o diretório: Quando um cesto precisa ser dividido, mas sua profundidade local já é igual à profundidade global, o diretório precisa crescer. Essa lógica, presente em insertElement(), faz o seguinte:
+Incrementa a globalDepth.
+Dobra o tamanho do array pointers, copiando os ponteiros existentes para a nova metade, efetivamente duplicando as referências.
+Atualiza os ponteiros que apontavam para o cesto antigo para que alguns deles agora apontem para o novo cesto criado na divisão.
+
+initializeHashTable(): Funciona como o "construtor" da aplicação. Ele reseta a profundidade global para 0, cria o primeiro cesto e configura o diretório inicial para apontar para este cesto.
+
+insertElement(): É o método central para a operação de inserção. Ele encapsula a lógica de:
+
+Calcular o hash da chave para encontrar a entrada no diretório.
+
+Localizar o cesto alvo.
+
+Verificar se o cesto está cheio.
+
+Se não estiver cheio, insere.
+
+Se estiver cheio, aciona a lógica de divisão de cesto e, se necessário, a duplicação do diretório, para só então inserir o elemento.
+
+searchElement(): Implementa a busca. Apenas calcula o hash, encontra o cesto e verifica se o elemento existe no array elements do cesto.
+
+deleteElement(): Implementa a remoção. Semelhante à busca, localiza o cesto e remove o elemento do array elements se ele for encontrado.
+
 ## Checklist de Entrega
 
 #### O trabalho implementa corretamente a estrutura de dados Tabela Hash Extensível, incluindo inserção, busca e remoção? Sim
