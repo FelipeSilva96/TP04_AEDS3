@@ -98,3 +98,15 @@ deleteElement(): Implementa a remoção. Semelhante à busca, localiza o cesto e
 #### Existe um painel de logs ou uma área de texto que descreve as operações passo a passo? Sim	
 #### O código-fonte está organizado e comentado, facilitando o entendimento?	Sim
 #### O trabalho é autocontido e não requer a instalação de dependências externas para ser executado?	Sim
+
+## Relatório de Experiência do Grupo
+
+Para nós, o desenvolvimento deste trabalho prático foi uma experiência muito valiosa e desafiadora. Conseguimos aplicar na prática os conceitos teóricos da Tabela Hash Extensível, o que solidificou nosso aprendizado.
+
+Implementação dos Requisitos: Sim, acreditamos ter implementado todos os requisitos essenciais da estrutura. A aplicação permite inicializar a tabela, inserir, buscar e deletar chaves. O sistema realiza corretamente a divisão de cestos e a duplicação do diretório quando necessário.
+
+Operação Mais Difícil: Sem dúvida, a operação mais complexa de implementar foi a de inserção (insertElement). A dificuldade não estava em simplesmente adicionar um elemento, mas em gerenciar a situação de overflow do cesto.
+
+Desafios Enfrentados: O nosso maior desafio foi a lógica de redistribuição dos elementos após a divisão de um cesto (split), especialmente quando essa divisão também exigia a duplicação do diretório. Garantir que todos os ponteiros no diretório fossem atualizados corretamente e que cada elemento fosse para seu novo cesto exigiu bastante atenção aos detalhes e depuração do código.
+
+Resultados Alcançados: Sim, os resultados foram totalmente alcançados. Ao final, temos uma ferramenta visual funcional que demonstra de forma clara e passo a passo cada operação na Tabela Hash Extensível, cumprindo o objetivo principal do trabalho. Ver o algoritmo funcionando de forma interativa foi o ponto alto do desenvolvimento.
