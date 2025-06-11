@@ -1,8 +1,11 @@
-/* Basic Conceptual CSS */
+/* Estilos conceituais básicos */
 body {
   font-family: sans-serif;
   margin: 20px;
 }
+
+/* Estilo para os painéis principais */
+
 .controls,
 .visualization-area,
 .log-panel {
@@ -10,29 +13,46 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
 }
+
+/* Organiza a área de visualização em um layout flexível */
+
 .visualization-area {
   display: flex;
   gap: 20px;
 }
+/* Garante que os painéis de diretório e cestos compartilhem o espaço */
+
 .directory-panel,
 .buckets-panel {
   flex: 1;
 }
+
+/* Estilo para os contêineres do diretório e dos cestos */
+
 #directory-entries,
 #bucket-list {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
+
+/* Estilo base para cada entrada do diretório e cesto */
+
 .dir-entry,
 .bucket {
   border: 1px solid #eee;
   padding: 8px;
   background-color: #f9f9f9;
 }
+
+/* Estilo para um cesto destacado (highlight) */
+
 .bucket.highlight {
   background-color: #ffe0b2;
 }
+
+/* Estilo para uma entrada do diretório destacada */
+
 .dir-entry.highlight {
   background-color: #c8e6c9;
 }
