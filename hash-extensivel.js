@@ -1,3 +1,5 @@
+// Mapeia os elementos do HTML para variáveis JavaScript
+
 const bucketCapacityInput = document.getElementById("bucket-capacity");
 const initBtn = document.getElementById("init-btn");
 const elementValueInput = document.getElementById("element-value");
@@ -5,20 +7,28 @@ const insertBtn = document.getElementById("insert-btn");
 const searchBtn = document.getElementById("search-btn");
 const deleteBtn = document.getElementById("delete-btn");
 
+// Mapeia os elementos de visualização
+
 const globalDepthSpan = document.getElementById("global-depth");
 const directoryEntriesDiv = document.getElementById("directory-entries");
 const bucketListDiv = document.getElementById("bucket-list");
 const logOutput = document.getElementById("log-output");
+
+// Estruturas de dados principais
 
 let directory = { globalDepth: 0, pointers: [] };
 let buckets = [];
 let maxBucketCapacity = 2;
 let nextBucketId = 0;
 
+// Função para adicionar uma mensagem ao painel de log
+
 function log(message) {
   logOutput.textContent = message + "\n" + logOutput.textContent;
   console.log(message);
 }
+
+// Renderiza o diretório na interface gráfica
 
 function renderDirectory() {
   globalDepthSpan.textContent = directory.globalDepth;
@@ -34,6 +44,8 @@ function renderDirectory() {
     directoryEntriesDiv.appendChild(entryDiv);
   }
 }
+
+// Renderiza os cestos na interface gráfica
 
 function renderBuckets() {
   bucketListDiv.innerHTML = "";
@@ -63,25 +75,33 @@ function renderBuckets() {
   });
 }
 
+// Retorna uma cor baseada no ID do cesto para diferenciação visual
+
 function getBucketColor(bucketId) {
   const colors = ["#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF"];
   return colors[bucketId % colors.length];
 }
+// Função central para atualizar toda a visualização
 
 function updateVisuals() {
   renderDirectory();
   renderBuckets();
 }
+// Calcula o hash de uma chave, baseado na profundidade
 
 function getHash(key, depth) {
   if (depth === 0) return 0;
   return Math.abs(parseInt(key)) % Math.pow(2, depth);
 }
+// Inicializa ou reseta a tabela hash para seu estado inicial
+
 
 function initializeHashTable() {
   maxBucketCapacity = parseInt(bucketCapacityInput.value) || 2;
   directory.globalDepth = 0;
   nextBucketId = 0;
+  
+  // Cria o primeiro cesto
 
   const initialBucket = {
     id: nextBucketId++,
@@ -98,6 +118,8 @@ function initializeHashTable() {
   updateVisuals();
 }
 
+// Insere um novo elemento na tabela hash
+
 function insertElement() {
   const value = elementValueInput.value;
   if (value === "") {
@@ -111,6 +133,8 @@ function insertElement() {
   }
 
   log(`Tentando inserir a chave: ${key}`);
+
+    // Encontra o cesto de destino
 
   let dirIndex = getHash(key, directory.globalDepth);
   let bucketId = directory.pointers[dirIndex];
@@ -231,6 +255,8 @@ function insertElement() {
   elementValueInput.value = "";
 }
 
+// Busca por um elemento na tabela
+
 function searchElement() {
   const value = elementValueInput.value;
   if (value === "") {
@@ -243,6 +269,8 @@ function searchElement() {
     return;
   }
   log(`Buscando pela chave: ${key}`);
+  
+  // Encontra o cesto onde a chave deveria estar
 
   let dirIndex = getHash(key, directory.globalDepth);
   let bucketId = directory.pointers[dirIndex];
@@ -264,6 +292,8 @@ function searchElement() {
   }
 }
 
+// Deleta um elemento da tabela
+
 function deleteElement() {
   const value = elementValueInput.value;
   if (value === "") {
@@ -276,6 +306,8 @@ function deleteElement() {
     return;
   }
   log(`Tentando excluir a chave: ${key}`);
+
+    // Encontra o cesto alvo
 
   let dirIndex = getHash(key, directory.globalDepth);
   let bucketId = directory.pointers[dirIndex];
@@ -291,6 +323,8 @@ function deleteElement() {
   highlightDirectoryEntry(dirIndex);
   highlightBucket(targetBucket.id);
 
+    // Encontra e remove o elemento do array do cesto
+
   const elementIndexInBucket = targetBucket.elements.indexOf(key);
   if (elementIndexInBucket > -1) {
     targetBucket.elements.splice(elementIndexInBucket, 1);
@@ -305,6 +339,8 @@ function deleteElement() {
   elementValueInput.value = "";
 }
 
+// Limpa todos os destaques visuais
+
 function clearHighlights() {
   document
     .querySelectorAll(".highlight")
@@ -313,6 +349,8 @@ function clearHighlights() {
     .querySelectorAll(".highlight-strong")
     .forEach((el) => el.classList.remove("highlight-strong"));
 }
+
+// Adiciona destaque a uma entrada do diretório
 
 function highlightDirectoryEntry(dirIndex, strong = false) {
   const entry = directoryEntriesDiv.children[dirIndex];
@@ -328,6 +366,8 @@ function highlightBucket(bucketId, strong = false) {
 function highlightElementInBucket(bucketId, key) {
   highlightBucket(bucketId, true);
 }
+
+// Adiciona os "escutadores de eventos" aos botões
 
 initBtn.addEventListener("click", () => {
   clearHighlights();
@@ -345,5 +385,6 @@ deleteBtn.addEventListener("click", () => {
   clearHighlights();
   deleteElement();
 });
+// Inicializa a tabela na primeira vez que a página é carregada
 
 initializeHashTable();
